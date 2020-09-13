@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  roles:
+    - role: geerlingguy.java
+  tasks:
+    - name: getting the code
+      copy:
+         src: workspace/spring-petclinic/target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
+         dest: /home/ansible/spring-petclinic
+    - name: check file exit or not
+      stat:
+        path: /home/ansible/1.txt
+      register: praveen
+    - name: running the spring-petclinic
+      shell: nohup java -jar /home/ansible/spring-petclinic &
+      notify:
+        - create a flag
+      when: praveen.stat.exists == False
+  handlers:
+    - name: create a flag
+      file:
+         path: /home/ansible/1.txt
+         state: touch
