@@ -6,7 +6,7 @@
   tasks:
     - name: getting the code
       copy:
-         src: workspace/spring-petclinic/target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
+         src: target/spring-petclinic-2.1.0.BUILD-SNAPSHOT.jar
          dest: /home/ansible/spring-petclinic
     - name: check file exit or not
       stat:
