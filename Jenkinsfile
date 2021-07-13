@@ -1,6 +1,9 @@
 pipeline {
-     agent any
-     stages {
+    agent any
+    parameters {
+        string(name: 'mybranch', defaultValue: 'myvalue', description: 'Who should I say hello to?')
+
+    stages {
        stage('SCM') {
         steps {
          git 'https://github.com/GitPracticeRepo/spring-petclinic.git'
