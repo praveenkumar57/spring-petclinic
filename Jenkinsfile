@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters {
         string(name: 'mybranch', defaultValue: 'myvalue', description: 'Who should I say hello to?')
-
+    }
     stages {
        stage('SCM') {
         steps {
