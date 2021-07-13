@@ -1,7 +1,7 @@
 pipeline {
     agent any
     parameters {
-        string defaultvalue: 'master', name: 'mybranch'
+        string defaultValue: 'master', name: 'mybranch'
     }
     stages {
        stage('SCM') {
