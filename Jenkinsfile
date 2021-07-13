@@ -6,7 +6,7 @@ pipeline {
     stages {
        stage('SCM') {
         steps {
-         git 'https://github.com/GitPracticeRepo/spring-petclinic.git'
+                git branch: "${params.mybranch}",url:https://github.com/GitPracticeRepo/spring-petclinic.git'
         }
       }
        stage ('build the packages') {
