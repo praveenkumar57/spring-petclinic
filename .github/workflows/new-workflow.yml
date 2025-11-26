@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 'latest'
+          java-version: '25'
       - name: install maven 3.8.6
         uses: stCarolas/setup-maven@v4
         with:
