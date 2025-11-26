@@ -7,7 +7,7 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v6
       - name: install maven 3.8.6
-        run: stCarolas/setup-maven@v4
+        uses: stCarolas/setup-maven@v4
         with:
           maven-version: '3.8.6'
       - name: build the code with maven
