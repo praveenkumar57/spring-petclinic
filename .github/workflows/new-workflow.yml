@@ -18,6 +18,7 @@ jobs:
       - name: build the code with maven
         run: mvn --version && mvn clean install
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
