@@ -34,6 +34,7 @@ jobs:
           name: spring-artifact
           path: target/spring-petclinic-4.0.0-SNAPSHOT.jar.original
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
