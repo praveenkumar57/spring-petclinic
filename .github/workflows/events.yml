@@ -1,0 +1,29 @@
+name: Events workflow
+on:
+   pullrequest:
+     types:
+       - opened
+       - closed
+   worflow_dispatch:
+   push:
+     branches:
+       - main
+       -'feature/*'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the code
+        uses: actions/checkout@v6
+      - name: install java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: install Maven
+        uses: stCarolas/setup-maven@v4
+        with:
+          maven-version: '3.8.6'
+      - name: build the code
+        run: mvn clean package
+ 
