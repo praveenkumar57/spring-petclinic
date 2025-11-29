@@ -1,10 +1,10 @@
 name: Events workflow
 on:
-   pullrequest:
+   pull_request:
      types:
        - opened
        - closed
-   worflow_dispatch:
+   workflow_dispatch:
    push:
      branches:
        - main
