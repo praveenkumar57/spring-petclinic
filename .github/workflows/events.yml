@@ -9,6 +9,8 @@ on:
      branches:
        - main
        - 'feature/*'
+     paths_ignore:
+       - '.github/workflows/*'
 jobs:
   build:
     runs-on: ubuntu-latest
