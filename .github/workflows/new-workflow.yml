@@ -19,7 +19,7 @@ jobs:
         id: build-package
         run: mvn --version && mvn clean packag
       - name: Upload the artifact
-        if: steps.build-package.outcome == 'failure'
+        if: failure() && steps.build-package.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: spring-artifacts
