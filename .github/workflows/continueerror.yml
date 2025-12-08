@@ -16,7 +16,6 @@ jobs:
         with:
           maven-version: '3.8.6'
       - name: build the code with maven
-        continue-on-error: true
         id: build-package
         run: mvn --version && mvn clean packag
 
@@ -27,6 +26,7 @@ jobs:
           path: target/spring-petclinic-4.0.0-SNAPSHOT.jar.original
   test:
     needs: build
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: checkout code
