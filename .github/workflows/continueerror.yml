@@ -1,0 +1,44 @@
+name: CI and CD workflow
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: Set up Java (Latest)
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: install maven 3.8.6
+        uses: stCarolas/setup-maven@v4
+        with:
+          maven-version: '3.8.6'
+      - name: build the code with maven
+        continue-on-error: true
+        id: build-package
+        run: mvn --version && mvn clean packag
+
+      - name: Upload the artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: spring-artifacts
+          path: target/spring-petclinic-4.0.0-SNAPSHOT.jar.original
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '25'
+      - name: install maven 3.8.6
+        uses: stCarolas/setup-maven@v4
+        with:
+         maven-version: '3.8.6'
+      - name: Run unit tests
+        run: mvn test
