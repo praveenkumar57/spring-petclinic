@@ -5,7 +5,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ubuntu-latest, windows-latest]
-    runs-on: {{ matrix.operating-system}}
+    runs-on: ${{ matrix.operating-system}}
     steps:
       - name: checkout code
         uses: actions/checkout@v6
