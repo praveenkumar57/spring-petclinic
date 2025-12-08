@@ -16,7 +16,14 @@ jobs:
         with:
           maven-version: '3.8.6'
       - name: build the code with maven
-        run: mvn --version && mvn clean install
+        id: build-package
+        run: mvn --version && mvn clean packag
+      - name: Upload the artifact
+        if: steps.build-package.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: spring-artifacts
+          path: target/spring-petclinic-4.0.0-SNAPSHOT.jar.original
   test:
     needs: build
     runs-on: ubuntu-latest
