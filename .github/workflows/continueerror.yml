@@ -1,4 +1,4 @@
-name: CI and CD workflow
+name: Continue-error
 on: workflow_dispatch
 jobs:
   build:
