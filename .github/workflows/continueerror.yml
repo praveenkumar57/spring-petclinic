@@ -2,7 +2,10 @@ name: Continue-error
 on: workflow_dispatch
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest, windows-latest]
+    runs-on: {{ matrix.operating-system}}
     steps:
       - name: checkout code
         uses: actions/checkout@v6
