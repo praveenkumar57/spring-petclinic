@@ -1,7 +1,7 @@
 name: reuseable workflow
 on: 
   workflow_call:
-    input: 
+    inputs: 
       artifact-name: 
         required: false
         default: spring-artifacts
@@ -13,6 +13,6 @@ jobs:
        - name: download the artifact
          uses: actions/download-artifact@v4
          with:
-           name: ${{ input.artifact-name }}
+           name: ${{ inputs.artifact-name }}
        - name: deploying the code
          run: echo "deploying the code"
