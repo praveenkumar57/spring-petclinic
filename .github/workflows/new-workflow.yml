@@ -42,4 +42,5 @@ jobs:
       - name: Run unit tests
         run: mvn test
   deploy:
-   uses: .github/workflows/reuseable.yml
+   needs: [build, test]
+   uses: ./.github/workflows/reuseable.yml
