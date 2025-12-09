@@ -4,7 +4,7 @@ on:
     inputs: 
       artifact-name: 
         required: false
-        default: spring-artifacts
+        default: spring
         type: string
 jobs:
   deploy:
