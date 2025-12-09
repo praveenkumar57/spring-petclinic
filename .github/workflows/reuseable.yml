@@ -1,8 +1,18 @@
 name: reuseable workflow
-on: workflow_call
+on: 
+  workflow_call:
+    input: 
+      artifact-name: 
+        required: false
+        default: spring-artifacts
+        type: string
 jobs:
   deploy:
      runs-on: ubuntu-latest
      steps:
+       - name: download the artifact
+         uses: actions/download-artifact@v4
+         with:
+           name: ${{ input.artifact-name }}
        - name: deploying the code
          run: echo "deploying the code"
