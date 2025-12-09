@@ -41,3 +41,5 @@ jobs:
          maven-version: '3.8.6'
       - name: Run unit tests
         run: mvn test
+  deploy:
+   uses: .github/workflows/reuseable.yml

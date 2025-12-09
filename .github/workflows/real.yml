@@ -1,5 +1,5 @@
 name: realtime example
-on: push
+on: workflow_dispatch
 env:
   S3_BUCKET: "real-time-57"
   AWS_REGION: "ap-southeast-2"
